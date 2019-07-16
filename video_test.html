@@ -1,0 +1,29 @@
+
+<html>
+  <body>
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+    <video id="video" controls></video>
+    <script>
+    if(Hls.isSupported())
+    {
+        var video = document.getElementById('video');
+        var hls = new Hls();
+        hls.loadSource('https://content-ausc4.uplynk.com/channel/7ddf9603607a47a8af6cd9b92d447bbf.m3u8?cid=7ddf9603607a47a8af6cd9b92d447bbf&oid=46bd55067a5242a781897e337face533&exp=1563251145&rn=1948489035&tc=1&ct=c&sig=03b18c973badc708130145a838133458e286deec7ecc037eec8625d5a8d7ea8a');
+        hls.attachMedia(video);
+        hls.on(Hls.Events.MANIFEST_PARSED,function()
+        {
+            video.play();
+        });
+    }
+    else if (video.canPlayType('application/vnd.apple.mpegurl'))
+    {
+        video.src = 'https://content-ausc4.uplynk.com/channel/7ddf9603607a47a8af6cd9b92d447bbf.m3u8?cid=7ddf9603607a47a8af6cd9b92d447bbf&oid=46bd55067a5242a781897e337face533&exp=1563251145&rn=1948489035&tc=1&ct=c&sig=03b18c973badc708130145a838133458e286deec7ecc037eec8625d5a8d7ea8a';
+        video.addEventListener('canplay',function()
+        {
+            video.play();
+        });
+    }
+    </script>
+  </body>
+</html>
+</html>
